@@ -1,23 +1,23 @@
 
 export const ADMIN_COMMISSION_PERCENT = 10;
-export const INITIAL_COINS = 500;
+export const INITIAL_COINS = 0; // Set to 0 as requested
 
 export const MOCK_USERS = [
   {
     id: 'user-1',
     name: 'Rahat Islam',
     email: 'rahat@example.com',
-    balance: 1200,
+    balance: 0, // Initial balance is now 0
     isAdmin: false,
     phone: '01711111111'
   },
   {
     id: 'admin-1',
-    name: 'Platform Admin',
-    email: 'admin@proplay.com',
+    name: 'Gazi Sohan',
+    email: 'gazisohan37@gmail.com',
     balance: 999999,
     isAdmin: true,
-    phone: '01822222222'
+    phone: '01811890995'
   }
 ];
 

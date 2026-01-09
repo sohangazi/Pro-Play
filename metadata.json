@@ -1,5 +1,5 @@
 {
-  "name": "ProPlay Real-Money Gaming Hub",
+  "name": "ProPlay",
   "description": "A high-performance gaming platform simulation featuring coin-based wagering, manual deposit/withdrawal workflows with admin oversight, and real-time match simulation.",
   "requestFramePermissions": [
     "camera"

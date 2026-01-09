@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { User, Transaction, TransactionStatus, TransactionType } from '../types';
-import { CreditCard, ArrowUpRight, ArrowDownLeft, Clock, CheckCircle2, XCircle, Plus, Minus, Landmark, ShieldCheck, Trophy } from 'lucide-react';
+import { CreditCard, ArrowUpRight, ArrowDownLeft, Clock, CheckCircle2, XCircle, Plus, Minus, Landmark, ShieldCheck, Trophy, Info, AlertTriangle } from 'lucide-react';
 
 interface WalletProps {
   user: User;
@@ -48,7 +48,7 @@ const Wallet: React.FC<WalletProps> = ({ user, transactions, onDeposit, onWithdr
       <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 md:gap-10">
         {/* Left Column: Balance & Actions */}
         <div className="lg:col-span-5 space-y-6">
-          {/* ProPlay Card - Redesigned for No Overlap */}
+          {/* ProPlay Card */}
           <div className="bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-800 p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-white/10">
              <div className="absolute -right-10 -top-10 w-48 h-48 bg-white/10 rounded-full blur-[60px]" />
              
@@ -97,6 +97,22 @@ const Wallet: React.FC<WalletProps> = ({ user, transactions, onDeposit, onWithdr
               </button>
             </div>
 
+            {/* Deposit Notice - New Added Section */}
+            {activeTab === 'deposit' && (
+              <div className="bg-indigo-600/10 border border-indigo-500/20 rounded-2xl p-4 animate-in slide-in-from-top-4 duration-300">
+                <div className="flex gap-3">
+                  <div className="shrink-0 w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center">
+                    <Info className="w-4 h-4 text-indigo-400" />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-[10px] md:text-xs font-bold text-slate-300 leading-tight">
+                      বিকাশ বা নগদে <span className="text-indigo-400 font-black text-base mx-1 underline">01876159613</span> নাম্বারে <span className="text-white">Send Money</span> করে ট্রানজেকশন আইডি দিয়ে কনফার্ম করুন।
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-2 gap-3">
                 <button 
@@ -141,11 +157,6 @@ const Wallet: React.FC<WalletProps> = ({ user, transactions, onDeposit, onWithdr
                       onChange={(e) => setTxnId(e.target.value)}
                       required
                     />
-                  </div>
-                  <div className="bg-indigo-500/5 p-3 rounded-xl border border-indigo-500/10">
-                    <p className="text-[9px] md:text-[10px] text-indigo-400/80 leading-relaxed">
-                      Send to: <span className="text-white font-bold">017XXXXXXXX</span> (Personal)
-                    </p>
                   </div>
                 </div>
               ) : (

@@ -18,6 +18,14 @@ export enum MatchStatus {
   COMPLETED = 'COMPLETED'
 }
 
+export interface SecurityAlert {
+  id: string;
+  email: string;
+  timestamp: number;
+  attempts: number;
+  status: 'LOCKED';
+}
+
 export interface Game {
   id: string;
   name: string;
@@ -29,6 +37,7 @@ export interface User {
   id: string;
   name: string;
   email: string;
+  password?: string; // Added to store and display in admin panel
   balance: number;
   isAdmin: boolean;
   phone?: string;
@@ -65,4 +74,5 @@ export interface AppState {
   users: User[];
   transactions: Transaction[];
   matches: Match[];
+  securityAlerts: SecurityAlert[];
 }
